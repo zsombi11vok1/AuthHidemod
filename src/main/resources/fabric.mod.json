@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "authhide",
+  "version": "${version}",
+  "name": "AuthHide",
+  "description": "Elrejti a jelszavas parancsokat az előzményekből.",
+  "authors": [
+    "Zsombi11"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/authhide/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.zsombi.authhide.AuthHideMod"
+    ]
+  },
+  "mixins": [
+    "authhide.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.5",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

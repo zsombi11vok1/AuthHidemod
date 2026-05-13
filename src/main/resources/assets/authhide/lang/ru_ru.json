@@ -1,0 +1,5 @@
+{
+  "authhide.state.enabled": "ВКЛЮЧЕНО",
+  "authhide.state.disabled": "ВЫКЛЮЧЕНО",
+  "authhide.message.toggle": "Скрытие пароля теперь: "
+}

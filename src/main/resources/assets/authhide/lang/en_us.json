@@ -1,0 +1,5 @@
+{
+  "authhide.state.enabled": "ENABLED",
+  "authhide.state.disabled": "DISABLED",
+  "authhide.message.toggle": "Password hiding is now: "
+}

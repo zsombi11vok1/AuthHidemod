@@ -1,0 +1,11 @@
+{
+  "package": "com.zsombi.authhide.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ChatHudMixin",
+    "TextFieldWidgetMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

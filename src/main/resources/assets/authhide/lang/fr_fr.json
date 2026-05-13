@@ -1,0 +1,5 @@
+{
+  "authhide.state.enabled": "ACTIVÉ",
+  "authhide.state.disabled": "DÉSACTIVÉ",
+  "authhide.message.toggle": "Masquage du mot de passe: "
+}

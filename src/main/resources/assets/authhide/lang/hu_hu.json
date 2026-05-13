@@ -1,0 +1,5 @@
+{
+  "authhide.state.enabled": "BEKAPCSOLVA",
+  "authhide.state.disabled": "KIKAPCSOLVA",
+  "authhide.message.toggle": "A jelszó elrejtése mostantól: "
+}
