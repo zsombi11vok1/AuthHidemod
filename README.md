@@ -15,3 +15,15 @@ The built mod jar will appear in `build/libs/`.
 - Minecraft target: 1.21.11
 - Client-only mod
 - Command: `/authhide`
+
+- Build Issues
+
+If the mod fails to build, try the following steps:
+
+# Clean and rebuild the project
+gradlew clean build
+
+# Refresh dependencies and rebuild
+gradlew --refresh-dependencies build
+
+Make sure you are using the correct Java version and compatible Minecraft/Fabric/Forge versions.
