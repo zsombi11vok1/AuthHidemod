@@ -14,16 +14,15 @@ The settings screen is also available through Mod Menu.
 
 ## Versions
 
-| Mod version | Minecraft | Java |
-|-------------|-----------|------|
-| 1.2.x       | 26.2      | 25   |
-| 1.0.0, 1.1.0 | 1.21.1   | 21   |
-
-Requires Fabric Loader 0.19.5+ and Fabric API (1.2.x).
+| Mod version | Minecraft | Java | Notes |
+|-------------|-----------|------|-------|
+| 1.2.3 | 26.1 - 26.3 | 25 | one jar for all three, Fabric Loader 0.18.4+ and Fabric API |
+| 1.2.3+mc1.21.11 | 1.21.11 | 21 | separate build, see the `mc/1.21.11` branch |
+| 1.0.0, 1.1.0 | 1.21.1 | 21 | |
 
 ## Build
 
-1. Install JDK 25.
+1. Install JDK 25 (JDK 21 on the `mc/1.21.11` branch).
 2. Run `./gradlew build`.
 
 The built mod jar will appear in `build/libs/`.
