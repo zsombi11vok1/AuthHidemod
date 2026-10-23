@@ -1,5 +1,21 @@
 {
   "authhide.state.enabled": "ENABLED",
   "authhide.state.disabled": "DISABLED",
-  "authhide.message.toggle": "Password hiding is now: "
+  "authhide.message.toggle": "Password hiding is now: ",
+  "authhide.message.spaces": "Keeping spaces visible is now: ",
+  "authhide.config.title": "AuthHide Settings",
+  "authhide.config.toggle": "Password Hiding",
+  "authhide.config.placeholder": "e.g. /login",
+  "authhide.config.add": "Add",
+  "authhide.config.back": "Back",
+  "authhide.config.commands": "Custom commands:",
+  "authhide.command.usage": "Usage: /authhide command <add, remove, list, clear> [command]",
+  "authhide.command.added": "Added custom command: %s",
+  "authhide.command.removed": "Removed custom command: %s",
+  "authhide.command.already_exists": "Command already in the list: %s",
+  "authhide.command.not_found": "Command not in the list: %s",
+  "authhide.command.list_empty": "No custom commands set.",
+  "authhide.command.list_header": "Custom commands:",
+  "authhide.command.invalid": "Invalid command. It must start with / and contain no spaces.",
+  "authhide.command.cleared": "Cleared %s custom command(s)."
 }

@@ -1,5 +1,21 @@
 {
   "authhide.state.enabled": "ВКЛЮЧЕНО",
   "authhide.state.disabled": "ВЫКЛЮЧЕНО",
-  "authhide.message.toggle": "Скрытие пароля теперь: "
+  "authhide.message.toggle": "Скрытие пароля теперь: ",
+  "authhide.message.spaces": "Сохранение видимых пробелов теперь: ",
+  "authhide.config.title": "Настройки AuthHide",
+  "authhide.config.toggle": "Скрытие пароля",
+  "authhide.config.placeholder": "напр. /login",
+  "authhide.config.add": "Добавить",
+  "authhide.config.back": "Назад",
+  "authhide.config.commands": "Пользовательские команды:",
+  "authhide.command.usage": "Использование: /authhide command <add, remove, list, clear> [команда]",
+  "authhide.command.added": "Добавлена пользовательская команда: %s",
+  "authhide.command.removed": "Удалена пользовательская команда: %s",
+  "authhide.command.already_exists": "Команда уже в списке: %s",
+  "authhide.command.not_found": "Команда не найдена в списке: %s",
+  "authhide.command.list_empty": "Пользовательские команды не заданы.",
+  "authhide.command.list_header": "Пользовательские команды:",
+  "authhide.command.invalid": "Недопустимая команда. Должна начинаться с / и не содержать пробелов.",
+  "authhide.command.cleared": "Удалено пользовательских команд: %s."
 }

@@ -1,5 +1,21 @@
 {
   "authhide.state.enabled": "AKTIVIERT",
   "authhide.state.disabled": "DEAKTIVIERT",
-  "authhide.message.toggle": "Passwort-Verstecken ist jetzt: "
+  "authhide.message.toggle": "Passwort-Verstecken ist jetzt: ",
+  "authhide.message.spaces": "Leerzeichen sichtbar lassen ist jetzt: ",
+  "authhide.config.title": "AuthHide Einstellungen",
+  "authhide.config.toggle": "Passwort verbergen",
+  "authhide.config.placeholder": "z.B. /login",
+  "authhide.config.add": "Hinzu",
+  "authhide.config.back": "Zurück",
+  "authhide.config.commands": "Eigene Befehle:",
+  "authhide.command.usage": "Verwendung: /authhide command <add, remove, list, clear> [Befehl]",
+  "authhide.command.added": "Eigener Befehl hinzugefügt: %s",
+  "authhide.command.removed": "Eigener Befehl entfernt: %s",
+  "authhide.command.already_exists": "Befehl bereits in der Liste: %s",
+  "authhide.command.not_found": "Befehl nicht in der Liste: %s",
+  "authhide.command.list_empty": "Keine eigenen Befehle gesetzt.",
+  "authhide.command.list_header": "Eigene Befehle:",
+  "authhide.command.invalid": "Ungültiger Befehl. Er muss mit / beginnen und darf keine Leerzeichen enthalten.",
+  "authhide.command.cleared": "%s eigene(r) Befehl(e) gelöscht."
 }

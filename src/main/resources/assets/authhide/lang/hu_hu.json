@@ -1,5 +1,21 @@
 {
   "authhide.state.enabled": "BEKAPCSOLVA",
   "authhide.state.disabled": "KIKAPCSOLVA",
-  "authhide.message.toggle": "A jelszó elrejtése mostantól: "
+  "authhide.message.toggle": "A jelszó elrejtése mostantól: ",
+  "authhide.message.spaces": "A szóközök megtartása (nem lesz belőlük csillag) mostantól: ",
+  "authhide.config.title": "AuthHide Beállítások",
+  "authhide.config.toggle": "Jelszó elrejtése",
+  "authhide.config.placeholder": "pl. /login",
+  "authhide.config.add": "Hozzáad",
+  "authhide.config.back": "Vissza",
+  "authhide.config.commands": "Egyéni parancsok:",
+  "authhide.command.usage": "Használat: /authhide command <add, remove, list, clear> [parancs]",
+  "authhide.command.added": "Egyéni parancs hozzáadva: %s",
+  "authhide.command.removed": "Egyéni parancs eltávolítva: %s",
+  "authhide.command.already_exists": "Ez a parancs már a listában van: %s",
+  "authhide.command.not_found": "Nincs ilyen parancs a listában: %s",
+  "authhide.command.list_empty": "Nincs egyetlen egyéni parancs sem.",
+  "authhide.command.list_header": "Egyéni parancsok:",
+  "authhide.command.invalid": "Érvénytelen parancs. /-rel kell kezdődnie és nem tartalmazhat szóközt.",
+  "authhide.command.cleared": "%s egyéni parancs törölve."
 }

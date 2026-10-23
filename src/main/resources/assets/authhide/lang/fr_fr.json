@@ -1,5 +1,21 @@
 {
   "authhide.state.enabled": "ACTIVÉ",
   "authhide.state.disabled": "DÉSACTIVÉ",
-  "authhide.message.toggle": "Masquage du mot de passe: "
+  "authhide.message.toggle": "Masquage du mot de passe: ",
+  "authhide.message.spaces": "Conservation des espaces visibles : ",
+  "authhide.config.title": "Paramètres AuthHide",
+  "authhide.config.toggle": "Masquer le mot de passe",
+  "authhide.config.placeholder": "ex. /login",
+  "authhide.config.add": "Ajouter",
+  "authhide.config.back": "Retour",
+  "authhide.config.commands": "Commandes personnalisées :",
+  "authhide.command.usage": "Utilisation : /authhide command <add, remove, list, clear> [commande]",
+  "authhide.command.added": "Commande personnalisée ajoutée : %s",
+  "authhide.command.removed": "Commande personnalisée supprimée : %s",
+  "authhide.command.already_exists": "Commande déjà dans la liste : %s",
+  "authhide.command.not_found": "Commande introuvable dans la liste : %s",
+  "authhide.command.list_empty": "Aucune commande personnalisée définie.",
+  "authhide.command.list_header": "Commandes personnalisées :",
+  "authhide.command.invalid": "Commande invalide. Elle doit commencer par / et ne contenir aucun espace.",
+  "authhide.command.cleared": "%s commande(s) personnalisée(s) supprimée(s)."
 }
