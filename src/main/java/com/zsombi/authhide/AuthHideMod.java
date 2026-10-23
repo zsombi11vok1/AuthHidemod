@@ -5,6 +5,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Component;
@@ -154,6 +156,30 @@ public class AuthHideMod implements ClientModInitializer {
                                         return 1;
                                     }))));
         });
+    }
+
+    private static java.lang.reflect.Method screenGetter;
+    private static java.lang.reflect.Field screenField;
+    private static boolean screenLookupDone;
+
+    // 26.2+: Gui#screen(), 26.1: Minecraft#screen mező
+    public static Screen currentScreen() {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc == null) return null;
+        try {
+            if (!screenLookupDone) {
+                screenLookupDone = true;
+                try {
+                    screenGetter = mc.gui.getClass().getMethod("screen");
+                } catch (NoSuchMethodException e) {
+                    screenField = Minecraft.class.getField("screen");
+                }
+            }
+            if (screenGetter != null) return (Screen) screenGetter.invoke(mc.gui);
+            if (screenField != null) return (Screen) screenField.get(mc);
+        } catch (ReflectiveOperationException ignored) {
+        }
+        return null;
     }
 
     public static String maskText(String text) {

@@ -2,7 +2,6 @@ package com.zsombi.authhide.mixin;
 
 import com.zsombi.authhide.AuthHideConfigScreen;
 import com.zsombi.authhide.AuthHideMod;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.ChatScreen;
@@ -94,10 +93,7 @@ public class EditBoxMixin {
     }
 
     private boolean authhide_isPasswordScreen() {
-        Minecraft mc = Minecraft.getInstance();
-        if (mc == null) return false;
-
-        Screen screen = mc.gui.screen();
+        Screen screen = AuthHideMod.currentScreen();
         if (screen == null) return false;
         // A saját config képernyőnket és a chatet soha ne maszkoljuk teljesen
         if (screen instanceof ChatScreen || screen instanceof AuthHideConfigScreen) return false;
