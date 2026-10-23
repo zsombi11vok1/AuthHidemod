@@ -1,10 +1,10 @@
 plugins {
-    id("net.fabricmc.fabric-loom") version "1.17-SNAPSHOT"
+    id("fabric-loom") version "1.14.10"
     java
     `maven-publish`
 }
 
-version = "1.2.3"
+version = "1.2.3+mc1.21.11"
 group = "com.zsombi11.authhide"
 
 repositories {
@@ -15,10 +15,11 @@ repositories {
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:26.2")
-    implementation("net.fabricmc:fabric-loader:0.19.5")
-    implementation("net.fabricmc.fabric-api:fabric-api:0.160.0+26.2")
-    compileOnly("com.terraformersmc:modmenu:20.0.2")
+    minecraft("com.mojang:minecraft:1.21.11")
+    mappings("net.fabricmc:yarn:1.21.11+build.6:v2")
+    modImplementation("net.fabricmc:fabric-loader:0.18.4")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.141.6+1.21.11")
+    modCompileOnly("com.terraformersmc:modmenu:17.0.1")
 }
 
 tasks.processResources {
@@ -29,11 +30,11 @@ tasks.processResources {
 }
 
 tasks.withType<JavaCompile>().configureEach {
-    options.release.set(25)
+    options.release.set(21)
 }
 
 java {
     withSourcesJar()
-    sourceCompatibility = JavaVersion.VERSION_25
-    targetCompatibility = JavaVersion.VERSION_25
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }

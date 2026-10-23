@@ -2,11 +2,12 @@ package com.zsombi.authhide.mixin;
 
 import com.zsombi.authhide.AuthHideConfigScreen;
 import com.zsombi.authhide.AuthHideMod;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.client.gui.screens.ChatScreen;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.screen.ChatScreen;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,10 +16,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Locale;
 
-@Mixin(EditBox.class)
-public class EditBoxMixin {
+@Mixin(TextFieldWidget.class)
+public class TextFieldWidgetMixin {
 
-    @Shadow private String value;
+    @Shadow private String text;
 
     private String authhide_savedText = null;
 
@@ -41,19 +42,19 @@ public class EditBoxMixin {
             "register", "registr", "регистрация", "regisztr"
     };
 
-    @Inject(method = "extractWidgetRenderState", at = @At("HEAD"))
-    private void authhide_onExtractRenderState(GuiGraphicsExtractor guiGraphicsExtractor, int mouseX, int mouseY, float partialTick, CallbackInfo ci) {
-        if (!AuthHideMod.isHiddenEnabled || this.value == null || this.value.isEmpty()) return;
+    @Inject(method = "renderWidget", at = @At("HEAD"))
+    private void authhide_onRender(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+        if (!AuthHideMod.isHiddenEnabled || this.text == null || this.text.isEmpty()) return;
 
         // 1) Chat-parancs maszkolás (pl. "/login jelszo")
-        String matched = findMatchingCommand(this.value);
+        String matched = findMatchingCommand(this.text);
         if (matched != null) {
-            int spaceIndex = this.value.indexOf(' ');
-            if (spaceIndex != -1 && spaceIndex < this.value.length() - 1) {
-                String command = this.value.substring(0, spaceIndex + 1);
-                String password = this.value.substring(spaceIndex + 1);
-                authhide_savedText = this.value;
-                this.value = command + AuthHideMod.maskText(password);
+            int spaceIndex = this.text.indexOf(' ');
+            if (spaceIndex != -1 && spaceIndex < this.text.length() - 1) {
+                String command = this.text.substring(0, spaceIndex + 1);
+                String password = this.text.substring(spaceIndex + 1);
+                authhide_savedText = this.text;
+                this.text = command + AuthHideMod.maskText(password);
             }
             return;
         }
@@ -61,15 +62,15 @@ public class EditBoxMixin {
         // 2) GUI jelszómező maszkolás (pl. AuthMe login képernyő)
         if (AuthHideMod.config != null && AuthHideMod.config.maskGuiPasswordFields
                 && authhide_isPasswordScreen()) {
-            authhide_savedText = this.value;
-            this.value = AuthHideMod.maskText(this.value);
+            authhide_savedText = this.text;
+            this.text = AuthHideMod.maskText(this.text);
         }
     }
 
-    @Inject(method = "extractWidgetRenderState", at = @At("TAIL"))
-    private void authhide_afterExtractRenderState(GuiGraphicsExtractor guiGraphicsExtractor, int mouseX, int mouseY, float partialTick, CallbackInfo ci) {
+    @Inject(method = "renderWidget", at = @At("TAIL"))
+    private void authhide_afterRender(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         if (authhide_savedText != null) {
-            this.value = authhide_savedText;
+            this.text = authhide_savedText;
             authhide_savedText = null;
         }
     }
@@ -93,19 +94,22 @@ public class EditBoxMixin {
     }
 
     private boolean authhide_isPasswordScreen() {
-        Screen screen = AuthHideMod.currentScreen();
+        MinecraftClient mc = MinecraftClient.getInstance();
+        if (mc == null) return false;
+
+        Screen screen = mc.currentScreen;
         if (screen == null) return false;
         // A saját config képernyőnket és a chatet soha ne maszkoljuk teljesen
         if (screen instanceof ChatScreen || screen instanceof AuthHideConfigScreen) return false;
 
         // a) A képernyő címe alapján (pl. "Login")
-        Component titleText = screen.getTitle();
+        Text titleText = screen.getTitle();
         if (titleText != null && authhide_containsKeyword(titleText.getString())) {
             return true;
         }
 
         // b) A mező saját (narrációs) üzenete alapján (pl. "Password")
-        Component msg = ((EditBox) (Object) this).getMessage();
+        Text msg = ((TextFieldWidget) (Object) this).getMessage();
         if (msg != null && authhide_containsKeyword(msg.getString())) {
             return true;
         }
