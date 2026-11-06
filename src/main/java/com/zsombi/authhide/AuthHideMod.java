@@ -158,28 +158,9 @@ public class AuthHideMod implements ClientModInitializer {
         });
     }
 
-    private static java.lang.reflect.Method screenGetter;
-    private static java.lang.reflect.Field screenField;
-    private static boolean screenLookupDone;
-
-    // 26.2+: Gui#screen(), 26.1: Minecraft#screen mező
     public static Screen currentScreen() {
         Minecraft mc = Minecraft.getInstance();
-        if (mc == null) return null;
-        try {
-            if (!screenLookupDone) {
-                screenLookupDone = true;
-                try {
-                    screenGetter = mc.gui.getClass().getMethod("screen");
-                } catch (NoSuchMethodException e) {
-                    screenField = Minecraft.class.getField("screen");
-                }
-            }
-            if (screenGetter != null) return (Screen) screenGetter.invoke(mc.gui);
-            if (screenField != null) return (Screen) screenField.get(mc);
-        } catch (ReflectiveOperationException ignored) {
-        }
-        return null;
+        return mc == null ? null : mc.gui.screen();
     }
 
     public static String maskText(String text) {
