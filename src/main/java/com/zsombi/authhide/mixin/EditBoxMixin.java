@@ -23,7 +23,7 @@ public class EditBoxMixin {
     private String authhide_savedText = null;
 
     private static final String[] DEFAULT_PASSWORD_COMMANDS = {
-            "/login", "/l",
+            "/login",
             "/register", "/reg",
             "/unregister", "/unreg",
             "/changepassword", "/changepass", "/cp",
