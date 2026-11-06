@@ -2,7 +2,7 @@
 
 Client-only Fabric mod that hides password commands (`/login`, `/register`, ...) from the chat history and masks password input with `*` characters, both in chat and in login GUIs (e.g. AuthMe).
 
-Downloads are on the [Releases](../../releases) page.
+Downloads are on the [Releases](../../releases) page. Questions, bug reports and ideas: [AuthHide Discord](https://discord.gg/wUbn26bJc3).
 
 ## Commands
 
