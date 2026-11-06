@@ -4,7 +4,7 @@ plugins {
     `maven-publish`
 }
 
-version = "1.2.3+mc1.21.11"
+version = "1.2.4+mc1.21.11"
 group = "com.zsombi11.authhide"
 
 repositories {

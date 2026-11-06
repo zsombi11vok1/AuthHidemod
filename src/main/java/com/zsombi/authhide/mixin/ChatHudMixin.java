@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ChatHudMixin {
 
     private static final String[] DEFAULT_PASSWORD_COMMANDS = {
-            "/login", "/l",
+            "/login",
             "/register", "/reg",
             "/unregister", "/unreg",
             "/changepassword", "/changepass", "/cp",
